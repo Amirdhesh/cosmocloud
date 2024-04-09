@@ -1,7 +1,9 @@
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
 
-connection_URI = "mongodb+srv://amirdhesh2003:amirdhesh2453@cluster0.qzsejnk.mongodb.net/?retryWrites=true&w=majority"
+load_dotenv()
 
-client = MongoClient(connection_URI)
+client = MongoClient(os.getenv("connection_URI"))
 
 db = client["librarymanagementsystem"]
