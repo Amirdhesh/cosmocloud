@@ -2,7 +2,15 @@ from fastapi import FastAPI
 from app.api import api
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+app = FastAPI(
+    title="Library Management System",
+    contact={
+        "name": "Amirdhesh",
+        "url": "https://amirdhesh.onrender.com/",
+        "email": "amirdhesh.s2021ai@sece.ac.in",
+    },
+    description="Library Management System api built using FastAPI and MongoDB as a database.",
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -16,7 +24,4 @@ app.add_middleware(
 app.include_router(api)
 
 
-if __name__ == "__main__":
-    import uvicorn
 
-    uvicorn.run("main:app", reload=True)
